@@ -6,7 +6,7 @@ class Particle {
   PShape part;
   float partSize;
   
-  PVector gravity = new PVector(0,0.1);
+  PVector gravity = new PVector(0,0);
 
 
   Particle() {

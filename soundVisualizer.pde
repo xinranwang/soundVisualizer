@@ -32,12 +32,14 @@ float SINCOS_PRECISION = 0.5;
 int SINCOS_LENGTH = int(360.0 / SINCOS_PRECISION);
 
 ArrayList<Globe> globeList = new ArrayList<Globe>();
-ArrayList<PImage> imageList1 = new ArrayList<PImage>();
-ArrayList<PImage> imageList2 = new ArrayList<PImage>();
-ArrayList<PImage> imageList3 = new ArrayList<PImage>();
-ArrayList<PImage> imageList4 = new ArrayList<PImage>();
-ArrayList<PImage> imageList5 = new ArrayList<PImage>();
-ArrayList<PImage> imageList6 = new ArrayList<PImage>();
+//ArrayList<PImage> imageList1 = new ArrayList<PImage>();
+//ArrayList<PImage> imageList2 = new ArrayList<PImage>();
+//ArrayList<PImage> imageList3 = new ArrayList<PImage>();
+//ArrayList<PImage> imageList4 = new ArrayList<PImage>();
+//ArrayList<PImage> imageList5 = new ArrayList<PImage>();
+//ArrayList<PImage> imageList6 = new ArrayList<PImage>();
+
+ArrayList<PImage> imageList = new ArrayList<PImage>();
 
 int timeCounter = 0;
 int timeGap = 15000;
@@ -84,7 +86,7 @@ void setup() {
   initializeSphere(sDetail);
   initializeGlobes();
 
-  sprite = loadImage("pinksprite.png");
+  sprite = loadImage("sprite.png");
   for (int i = 0; i < 10; i++) {
     ParticleSystem ps = new ParticleSystem(5000, random(-3000, 3000), random(-3000, 3000), random(-3000, 3000));
     psList.add(ps);
@@ -142,25 +144,25 @@ void draw() {
 
 
   camera(width / 2 - cameraRadius * sin(cameraAngle), height / 2, cameraRadius * cos(cameraAngle), width / 2, height / 2, 0, 0, 1, 0);
-  cameraAngle += 0.005 + amplitude / 100;
+  cameraAngle += 0.01 + amplitude / 100;
 
-  //  monitor();
+//  monitor();
 
   ////////// DRAW GLOBES
   tint(255 - remappedFreq, remappedFreq, remappedFreq);
 
-  if (timeMode == 1) {
-    if (millis()  - now > timeGap * timeCounter && timeCounter < imageList1.size()) {      
-      globeList.get(0).setImage(imageList1.get(timeCounter));
-      globeList.get(1).setImage(imageList2.get(timeCounter));
-      globeList.get(2).setImage(imageList3.get(timeCounter));
-      globeList.get(3).setImage(imageList4.get(timeCounter));
-      globeList.get(4).setImage(imageList5.get(timeCounter));
-      globeList.get(5).setImage(imageList6.get(timeCounter));
-      timeCounter++;
-      //println(timeCounter);
-    }
-  }
+//  if (timeMode == 1) {
+//    if (millis()  - now > timeGap * timeCounter && timeCounter < imageList1.size()) {      
+//      globeList.get(0).setImage(imageList1.get(timeCounter));
+//      globeList.get(1).setImage(imageList2.get(timeCounter));
+//      globeList.get(2).setImage(imageList3.get(timeCounter));
+//      globeList.get(3).setImage(imageList4.get(timeCounter));
+//      globeList.get(4).setImage(imageList5.get(timeCounter));
+//      globeList.get(5).setImage(imageList6.get(timeCounter));
+//      timeCounter++;
+//      //println(timeCounter);
+//    }
+//  }
 
 
   for (int i = 0; i < globeList.size(); i++) {
